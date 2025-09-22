@@ -1,0 +1,190 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout" controllerName="Cust.CustCreateFlow.controller.View1"
+	displayBlock="true">
+	<Shell id="shell">
+		<App id="idAppControl">
+			<pages>
+				<Page title="{i18n>title}">
+					<customHeader>
+						<Bar>
+							<contentRight>
+								<Button type="Emphasized" text="Edit" press="onEdit" width="120px" id="IdEdit" enabled="{localModel>/EditButton}">
+									<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+								</Button>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<!--<MessageStrip visible="{localModel2>/Visible}" text="{localModel2>/Text}" type="{localModel2>/Type}" showIcon="true" showCloseButton="true"-->
+						<!--	class="sapUiMediumMarginBottom"></MessageStrip>-->
+						<!--Employee details-->
+						<VBox class="sapUiSmallMargin">
+							<f:SimpleForm id="IdCustomerDetails" editable="true" layout="ResponsiveGridLayout" title="Customer Apporval Status: {/MessageBinding}"
+								labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0"
+								emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1" backgroundDesign="Solid" singleContainerFullSize="false">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="{i18n>TempId}" required="true"/>
+									<Text id="idTempId" text="{/ztempid}"/>
+									<Label text="{i18n>CustNameAr1}"/>
+									<Input id="idNameAr1" value="{/znamear1}" enabled="{localModel>/allowEdit}" maxLength="40" textDirection="RTL" required="true"/>
+									<Label text="{i18n>CustNameAr2}"/>
+									<Input id="idNameAr2" value="{/znamear2}" enabled="{localModel>/allowEdit}" maxLength="40" textDirection="RTL"/>
+									<Label text="{i18n>CustNameAr3}"/>
+									<Input id="idNameAr3" value="{/znamear3}" enabled="{localModel>/allowEdit}" maxLength="40" textDirection="RTL"/>
+									<Label text="{i18n>CustNameEn}"/>
+									<Input id="idNameEn" value="{/znameen}" enabled="{localModel>/allowEdit}" maxLength="40" required="true"/>
+									<Label text="{i18n>CustEmail}"/>
+									<Input id="idEmail" type="Email" value="{/zemail}" enabled="{localModel>/allowEdit}" maxLength="50"/>
+									<Label text="{i18n>Mobile}"/>
+									<Input id="idMobile" value="{/zmobile}" enabled="{localModel>/allowEdit}" maxLength="15" liveChange="onlyNumber" required="true"/>
+									<Label text="{i18n>AltMobile}"/>
+									<Input id="idAltMobile" value="{/zmobile2}" enabled="{localModel>/allowEdit}" maxLength="15" liveChange="onlyNumber"/>
+									<Label text="{i18n>VAT}"/>
+									<Input id="idVAT" value="{/zvat}" enabled="{localModel>/allowEdit}" maxLength="15" liveChange="onlyNumber"/>
+									<Label text="{i18n>CR}"/>
+									<Input id="idCR" value="{/zcr}" enabled="{localModel>/allowEdit}" maxLength="15" liveChange="onlyNumber" required="true"/>
+									<Label text="{i18n>CRDates}"/>
+									<DatePicker xmlns="sap.m" id="idCRFromDate" enabled="{localModel>/allowEdit}" required="true"
+										value="{ path:'/zcr_from_date', type:'sap.ui.model.type.Date', formatOptions: { style:'medium', UTC: true } }" tooltip="CR Valid From Date"/>
+									<DatePicker xmlns="sap.m" id="idCRExpDate" enabled="{localModel>/allowEdit}" required="true"
+										value="{ path:'/zcr_exp_date', type:'sap.ui.model.type.Date', formatOptions: { style:'medium', UTC: true } }" tooltip="CR Valid To Date"/>
+									<!--<DatePicker xmlns="sap.m" value="{/zcr_from_date}" id="idCRFromDate" enabled="{localModel>/allowEdit}" required="true" valueFormat="yyyy-MM-dd" displayFormat="medium" displayFormatType="Gregorian" tooltip="CR Valid From Date" />-->
+									<!--<DatePicker xmlns="sap.m" value="{/zcr_exp_date}" id="idCRExpDate" enabled="{localModel>/allowEdit}" required="true" valueFormat="yyyy-MM-dd" displayFormat="medium" displayFormatType="Gregorian" tooltip="CR Valid To Date" />-->
+									<Label text="{i18n>Build}"/>
+									<Input id="idBuild" value="{/zbuilding}" enabled="{localModel>/allowEdit}" maxLength="5" required="true"/>
+									<Label text="{i18n>Street}"/>
+									<Input id="idStreet" value="{/zstreet}" enabled="{localModel>/allowEdit}" maxLength="60" required="true"/>
+									<Label text="{i18n>District}"/>
+									<Input id="idDistrict" value="{/zdistrict}" enabled="{localModel>/allowEdit}" maxLength="40" required="true"/>
+									<Label text="{i18n>City}"/>
+									<Input id="idCity" value="{/zcity}" enabled="{localModel>/allowEdit}" maxLength="40" required="true"/>
+									<Label text="{i18n>pd}"/>
+									<Input id="idpd" value="{/zpostalcode}" enabled="{localModel>/allowEdit}" maxLength="6" liveChange="onlyNumber" required="true"/>
+									
+									
+									<Label text="{i18n>DelvRoute}"/>
+									<Input id="idDeliveryRoute" value="{/DeliveryRoute}" enabled="{localModel>/allowEdit}" maxLength="6" required="false"/>
+									
+									<core:Title text="Other Details"/>
+									<Label text="{i18n>Status}"/>
+									<Text id="idStatus" text="{/zstatus}"/>
+									<Label text="{i18n>ShopLic}"/>
+									<Input id="idShopLic" value="{/zshoplicense}" enabled="{localModel>/allowEdit}" maxLength="15" liveChange="onlyNumber" required="true"/>
+									<Label text="{i18n>Route}"/>
+									<Input id="idRoute" value="{/zroute}" enabled="{localModel>/allowEdit}" maxLength="6" required="true"/>
+									<Label text="{i18n>SalesOffice}"/>
+									<Text id="idSalesOffice" text="{/SalesOffice}"/>
+									<Text id="idSalesOfficeText" text="{/SalesOfficeText}"/>
+									<Label text="{i18n>Channel}"/>
+									<Text id="idChannel" text="{/zchannel}"/>
+									<Text id="idChannelText" text="{/zchannel_text}"/>
+									<Label text="{i18n>Divison}"/>
+									<Input id="idDivison" value="{/zDivison}" enabled="{localModel>/allowEdit}" maxLength="2" submit="onEnterDivisionID" showSuggestion="true"
+										liveChange="onlyNumber" showValueHelp="true" valueHelpRequest="handleValueHelpDivision" required="true">
+										<suggestionItems>
+											<core:Item text="{DivisionKey}"/>
+										</suggestionItems>
+									</Input>
+									<Text id="idDivisonText" text="{/zDivison_text}"/>
+									<Label text="{i18n>Preseller}"/>
+									<Input id="idPreseller" value="{/zpresellerid}" enabled="{localModel>/allowEdit}" submit="onEnterEmpID" showSuggestion="true"
+										showValueHelp="true" valueHelpRequest="handleValueHelp" required="true" maxLength="7">
+										<suggestionItems>
+											<core:Item text="{PresellerId}"/>
+										</suggestionItems>
+									</Input>
+									<Text id="idPresellerName" text="{/zpresellerName}"/>
+									<Label text="{i18n>Pay}"/>
+									<Select id="idPay" enabled="{localModel>/allowEdit}" selectedKey="{/zpayTerm}" forceSelection="true" change="onChange">
+										<!--<Input id="idPay" value="{/zpayTerm}" enabled="{localModel>/allowEdit}"/>-->
+										<items>
+											<core:Item xmlns:core="sap.ui.core" key="" text="" id="item0"/>
+											<core:Item xmlns:core="sap.ui.core" key="1" text="Cash Customer" id="cash"/>
+											<core:Item xmlns:core="sap.ui.core" key="2" text="Credit Customer" id="credit"/>
+										</items>
+									</Select>
+									<Label text="{i18n>CreditLimit}" visible="{localModel>/CreditLimit}"/>
+									<Input id="idCreditLimit" value="{/CreditLimit}" enabled="{localModel>/allowEdit}" visible="{localModel>/CreditLimit}" required="true"
+										liveChange="onlyNumber" maxLength="4"/>
+									<Label text="{i18n>Comments}"/>
+									<Input id="idComments" value="{/zcomments}" enabled="{localModel>/comment}" maxLength="100"/>
+									<Label text="{i18n>User}"/>
+									<Text id="idUser" text="{/zuser}"/>
+									<Text id="idUserName" text="{/zuserName}"/>
+									<Label text="{i18n>UpdatedUser}"/>
+									<Text id="idUpdateUser" text="{/UpdatedUser}"/>
+									<Label text="{i18n>UpdatedDate}"/>
+									<Text id="idUpdateDate" text="{path:'/UpdatedDate', type:'sap.ui.model.type.Date', formatOptions : { style:'medium', UTC: true}}"/>
+									<Label text="{i18n>UpdatedTime}"/>
+									<Text id="idUpdateTime" text="{path:'/UpdatedTIme', type:'sap.ui.model.odata.type.Time'}"/>
+									<Label text="Google Link"/>
+									<Link text="{i18n>url}" target="_blank" href="{/url}"/>
+									<Label text="{i18n>visitDay}"/>
+									<Select id="idVisitDay" enabled="{localModel>/allowEdit}" selectedKey="{/visitDay}" forceSelection="true">
+										<!--<Input id="idPay" value="{/zpayTerm}" enabled="{localModel>/allowEdit}"/>-->
+										<items>
+											<core:Item xmlns:core="sap.ui.core" key="" text="" id="itemB"/>
+											<core:Item xmlns:core="sap.ui.core" key="U" text="Sunday" id="itemU"/>
+											<core:Item xmlns:core="sap.ui.core" key="M" text="Monday" id="itemM"/>
+											<core:Item xmlns:core="sap.ui.core" key="T" text="Tuesday" id="itemT"/>
+											<core:Item xmlns:core="sap.ui.core" key="W" text="Wednesday" id="itemW"/>
+											<core:Item xmlns:core="sap.ui.core" key="R" text="Thursday" id="itemR"/>
+											<core:Item xmlns:core="sap.ui.core" key="F" text="Friday" id="itemF"/>
+											<core:Item xmlns:core="sap.ui.core" key="S" text="Saturday" id="itemS"/>
+										</items>
+									</Select>
+									<Label text="{i18n>visitFrequency}"/>
+									<Input id="idVisitFreq" value="{/visitFrequency}" enabled="{localModel>/allowEdit}" maxLength="1"/>
+								</f:content>
+							</f:SimpleForm>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<f:SimpleForm id="idUploadsSection" visible="{localModel>/allowEdit}" editable="true" layout="ResponsiveGridLayout"
+								title="User Upload Actions" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+								emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsM="1" backgroundDesign="Solid" singleContainerFullSize="false"
+								columnsL="1">
+								<f:content>
+									<Label text=""/>
+									<Label text="Upload VAT"/>
+									<u:FileUploader id="idfileVAT" width="50%" tooltip="Upload VAT Document" style="Emphasized" maximumFileSize="2" fileSizeExceed="handleFile"
+										visible="{localModel>/allowEdit}" placeholder="Choose VAT file for Upload..."/>
+									<Label text="Upload CR"/>
+									<u:FileUploader id="idfileCR" width="50%" tooltip="Upload CR Document" style="Emphasized" maximumFileSize="2" fileSizeExceed="handleFile"
+										visible="{localModel>/allowEdit}" placeholder="Choose CR file for Upload..."/>
+									<Label text="Upload Shop Licence"/>
+									<u:FileUploader id="idfileShop" width="50%" tooltip="Upload Shop Licence Document" style="Emphasized" maximumFileSize="2"
+										fileSizeExceed="handleFile" visible="{localModel>/allowEdit}" placeholder="Choose Shop Licence file for Upload..."/>
+								</f:content>
+							</f:SimpleForm>
+							<items>
+								<f:SimpleForm id="idCommentsSection" editable="true" layout="ResponsiveGridLayout" title="User Actions" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1"
+									columnsM="1" backgroundDesign="Solid" singleContainerFullSize="false" columnsL="1" busyIndicatorSize="Auto" maxContainerCols="4">
+									<f:content>
+										<Button xmlns="sap.m" type="Emphasized" text="View VAT Attachment" press="onViewVAT" width="180px" id="IdVATBtn">
+											<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+										</Button>
+										<Button xmlns="sap.m" type="Emphasized" text="View CR Attachment" press="onViewCR" width="180px" id="IdCRBtn">
+											<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+										</Button>
+										<Button xmlns="sap.m" type="Emphasized" text="View Shop Licence" press="onViewShop" width="180px" id="IdShopBtn">
+											<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+										</Button>
+										<Button xmlns="sap.m" type="Emphasized" text="View History" press="onViewHistory" width="180px" id="IdHisBtn">
+											<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+										</Button>
+										<Button xmlns="sap.m" text="Save" press="onSaveRequest" width="180px" id="Idsubmit" enabled="{localModel>/SaveButton}"
+											activeIcon="sap-icon://save" type="Accept">
+											<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+										</Button>
+									</f:content>
+								</f:SimpleForm>
+							</items>
+						</VBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

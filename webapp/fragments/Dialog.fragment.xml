@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="Preseller" class="sapUiPopupWithPadding" items="{/EmployeeDetailsSet}" search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose" cancel="_handleValueHelpClose">
+		<StandardListItem title="{PresellerId}" description="{PName}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

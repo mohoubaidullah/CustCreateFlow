@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table">
+	<Dialog id="idHistoryView" title="History" contentWidth="920px">
+		<VBox class="sapUiSmallMargin">
+			<table:Table rows="{historyModel>/results}" title="Customer Create Approval Histroy" visibleRowCount="8">
+				<table:columns>
+					<table:Column width="4rem">
+						<Label text="Step"/>
+						<table:template>
+							<Text text="{historyModel>Zlevel}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="6rem">
+						<Label text="Level"/>
+						<table:template>
+							<Text text="{ path: 'historyModel>Zapprposition', formatter: '.formatterLevel' }"/>
+							<!--<Text text="{historyModel>Zapprposition}"/>-->
+						</table:template>
+					</table:Column>
+					<table:Column width="8rem">
+						<Label text="User"/>
+						<table:template>
+							<Text text="{historyModel>Zuser}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<Label text="Date"/>
+						<table:template>
+							<!--<DatePicker enabled="false" value="{ path: 'historyModel>Zdate', formatOptions : { style:'short', UTC: true} }"/>-->
+							<Text text="{historyModel>Zdate}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="7rem">
+						<Label text="Time"/>
+						<table:template>
+							<Text text="{historyModel>Ztime}"/>
+							<!--<Input value="{ path: 'historyModel>Ztime', type:'sap.ui.model.odata.type.Time'}" enabled="false"/>-->
+						</table:template>
+					</table:Column>
+					<table:Column width="7rem">
+						<Label text="Status"/>
+						<table:template>
+							<Text text="{ path: 'historyModel>Zstatus', formatter: '.formatterStatus' }"/>
+							<!--<Text text="{historyModel>Zstatus}"/>-->
+						</table:template>
+						
+					</table:Column>
+					<table:Column width="12rem">
+						<Label text="Comments"/>
+						<table:template>
+							<Text text="{historyModel>Zcomments}"/>
+						</table:template>
+						
+					</table:Column>
+				</table:columns>
+			</table:Table>
+		</VBox>
+		<beginButton>
+			<Button text="Close" press="onCloseHistory"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>
